@@ -1,0 +1,13 @@
+body {
+    background-color: lavender;
+    margin: 30px;
+}
+
+img {
+    filter:drop-shadow(3px 3px 4px grey);
+    border-radius: 8px;
+}
+
+a {
+    font-family: 'Courier New', Courier, monospace;
+}

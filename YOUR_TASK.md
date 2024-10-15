@@ -1,48 +1,10 @@
-### 2.5 - Function Parameters & Return
+# 2.6 - Connecting HTML to JavaScript
 
 ##### ICS3 - Mr. Brash 🐿️
 
 # 📝 Your Task:
 
-Remember our temperature conversion functions? Let's do it one last time but _return_ the answer instead of printing it.
 
-Reminders:
-
-> Celsius = (Fahrenheit - 32) * 5/9  
-Fahrenheit = (Celsius * 9/5) + 32
-
-### Part 1: `to_fahrenheit(celsius)`
-
-Create the function `to_fahrenheit(celsius)` that converts the value passed into the function into a Fahrenheit value. _Round the answer to the nearest whole degree and return it_.
-
-> Hint: Your function should _not_ have any `console.log()` in it.
-
-Example tests:
-```JS
-let f = to_fahrenheit(37);  // Should not print anything
-console.log(f);             // Should print 99
-
-f = to_fahrenheit(20);
-console.log(f);             // Should print 68
-```
-
----
-
-### Part 2: `to_celsius(fahrenheit)`
-
-Now do the same for converting from Fahrenheit to Celsius.
-
----
-
-### Part 3: `area_circle(radius)`
-
-Create the function `area_circle(radius)` that calculates and _returns_ the area of a circle with the given radius. _Do **not** round the result_.
-
-### Part 4: `cylinder_volume(radius, height)`
-
-The volume of a cylinder is pretty neat - you take the area of the circular base and you multiply by the height. **You already have a function for the area of a circle!**
-
-Create the function `cylinder_volume(radius, height)` that calculates and _returns_ the volume of a cylinder with the given `radius` and `height`. This function _must_ use your `area_circle()` function to help with the calculation.
 
 ---
 

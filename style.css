@@ -1,13 +1,9 @@
 body {
-    background-color: lavender;
+    background-color: mistyrose;
     margin: 30px;
+    font-size: larger;
 }
 
-img {
-    filter:drop-shadow(3px 3px 4px grey);
-    border-radius: 8px;
-}
-
-a {
-    font-family: 'Courier New', Courier, monospace;
+button, input {
+    font-size: large;
 }

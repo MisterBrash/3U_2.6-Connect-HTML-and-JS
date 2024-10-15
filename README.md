@@ -1,108 +1,71 @@
-# 2.5 - Function Parameters and Return
+# 2.6 - Connecting HTML to JavaScript
 
 ##### ICS3 - Mr. Brash 🐿️
 
-<img src="./images/params_and_return.png" width="280px"  style="display:block;margin:auto;filter:drop-shadow(3px 3px 4px grey)">  
-
-<br>
+#### The time has come! We are going to connect the front-end (HTML) to the back-end (JS)!
 
 **If you missed the live demonstration in class, read below. Otherwise you can go straight to [your task](./YOUR_TASK.md).**
 
-- Don't like reading? [Here's a video on _Parameters_](https://youtu.be/hI-04Ot4vZY) and [here's a video on _Return_](https://youtu.be/qV4PHIp-PNs)
+## 🔍 Getting HTML Elements inside JavaScript
 
+**Unique IDs:** All elements that you will be controlling with JavaSscript _must_ have a unique identifier.
 
-## Part 1 - Parameters
+```HTML
+index.html
 
-**Ever notice that `Math.floor(x)` takes in a number but `Math.random()` doesn't?**  
-And `console.log()` can take _many_ values, separated by commas. 
+<div id="score">100</div>
 
-Those values inside the brackets are called _**parameters**_. They are the _inputs_ to a function and allow us to _pass_ values around in our code. Here's an example of a **custom function with parameters**:
-```JS
-// Raise a base to an exponent and print the result
-function exponent(base, exp) {
-    let answer = base**exp;
-    console.log(answer);    // Could also be done without the variable
-}
+<button id="quit_button">Quit</button>
+
+<img id="options" src="./images/options.png">
 ```
 
-☝🏻 The parameters to that function are `base` and `exp`. When we _call_ the `exponent` function from now on, we have to give values in those locations. The values we give it are called _arguments_ but just think of them as _inputs_ or _parameters_.
+**The `document` object** To read or modify elements on a page, we use the JavaScript `document` object, similar to how we used the `console` object for printing or `Math` object for mathing.
+
 ```JS
-exponent(5, 2);   // prints 25
-exponent(10, 3);  // prints 1000
+main.js
 
-// What will this print:
-exponent()
+let score_div = document.getElementById("score");
 
-// Or this:
-exponent(6)
+// Modify the score
+score_div.textContent = 150;
 ```
 
-With _parameters_ we can start customizing our functions to do exactly what we want:
-```JS
-rollDice(4, 6);    // Roll four 6-sided dice for a total value
+> ☝ It's important to understand that `document.getElementById()` returns the actual _Node_ or _Element_ on the page not just the text or value of that object.
 
-randInt(-12, 12);  // Get a random whole number from -12 to 12
+
+### 💻 Your Turn to Try!
+
+The [index.html](./index.html) page has a `<div>` element called "try_me". Go to the dev console try getting or changing the text inside the div:
+```JS
+let my_div = document.getElementById("try_me");
+
+console.log(my_div.textContent);
+
+my_div.textContent = "Hi mom!";
 ```
 
-### 💻 Your Turn
 
-Go to the [main.js code file](./main.js) and create a new custom function called `add3(num1, num2, num3)` that adds the values of the variables `num1`, `num2`, and `num3` - printing the result. Go to your dev console and run the function several times to test it.
+## 👂 Event Listeners
 
-## Part 2 - Return
+When a user interacts with a webpage (click, mouse move, key press, etc) this creates _events_. You can find [the entire list of events online](https://www.w3schools.com/jsref/dom_obj_event.asp).
 
-**Printing a value to the console is useful for the developer but how can we _use_ that value for more work?**
+In order to have the event trigger some code (maybe the user clicked on an image), we tell the HTML document to **listen** for that specific **event**. This is called **setting up an event listener**.
 
-The `Math.sqrt(x)` function _gives back_ the square root of a number. It does not print it to the console, we have to do that ourselves:
-```JS
-let s = Math.sqrt(16);
-console.log(s)
+### There are two ways to listen for an event:
+
+**1. In HTML (the easy method):**
+```HTML
+Use the "on" event trigger:
+<img id="options" src="./images/options.png" onclick="load_options()">
 ```
 
-🤔 How is it _giving back_ the number 4 so we can store it in a variable?
+This approach _assumes_ that the JavaScript is ready and loaded properly. It causes us to put JS code in two places - the document _and_ the JS file. Similar to how we separate out the CSS, we would rather _not_ use the above method.
 
-The `exponent` function we made above is a little useless. What if we wanted to use it for the Pythagorean Theorem? Right now, we can't.
-
-### 💻 Try it
-
-Go to your main.js code file and paste this in:
+**2. In JavaScript (the preferred method):**
 ```JS
-function square(value) {
-    let answer = value**2;
-}
-
-let x = square(5);   // 5 squared is 25
-console.log(x);
-```
-
-Preview your index.html file and check the console - do you see the answer to `square(5)` anywhere?
-
-**In order to provide an answer (output) from your function, we use the `return` keyword:**
-```JS
-function square(value) {
-    let answer = value**2;
-    return answer;         // Stop the function and give back the value in 'answer'
-}
-```
-
-☝🏻 **Important notes:**
-- The `return` keyword **stops** the function, so if you have code after it, it won't run. 
-- You don't have to return a value, you can use the `return` statement to exit the function.
-
-```JS
-function useless(value) {
-    let answer = value**2;
-    return;                // Return 'undefined'
-    console.log(answer);   // This line will NEVER run
-}
-```
-
-### 📝 An example of a function that uses Parameters _and_ a Return:
-```JS
-// Return a random value from 'min' to 'max', inclusive
-function randInt(min, max) {
-    let rnd = Math.floor(Math.random() * (max - min + 1)) + min;
-    return rnd;
-}
+// Setup an Event Listener
+document.getElementById("options").addEventListener("click", load_options);
 ```
 
 ---

@@ -1,13 +1,19 @@
 /**
- * 
- * 2.5 - Function Parameters and Return
+ * 2.6 - Connecting HTML to JavaScript!
  * ICS3 - Mr. Brash 🐿️
  * 
  * Read README.md and YOUR_Task.md 
- * 
- * The line below forces JavaScript to follow certian rules. Leave it there.
- * For more info: www.w3schools.com/js/js_strict.asp
-**/ 
+ **/ 
 
+// Follow the rules
 'use strict';
 
+/*** Event Listeners ***/
+
+
+/*** Functions ***/
+
+// Return a random integer from `min` to `max`, inclusive
+function randInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}

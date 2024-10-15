@@ -20,7 +20,7 @@ index.html
 <img id="options" src="./images/options.png">
 ```
 
-**The `document` object** To read or modify elements on a page, we use the JavaScript `document` object, similar to how we used the `console` object for printing or `Math` object for mathing.
+**The `document` object** To read or modify elements on a page, we use the JavaScript [`document`](https://www.w3schools.com/js/js_htmldom_document.asp) object, similar to how we used the `console` object for printing or `Math` object for mathing.
 
 ```JS
 main.js
@@ -31,7 +31,7 @@ let score_div = document.getElementById("score");
 score_div.textContent = 150;
 ```
 
-> ☝ It's important to understand that `document.getElementById()` returns the actual _Node_ or _Element_ on the page not just the text or value of that object.
+> ☝ It's important to understand that [`document.getElementById()`](https://www.w3schools.com/jsref/met_document_getelementbyid.asp) returns the actual _Node_ or _Element_ on the page not just the text or value of that object.
 
 
 ### 💻 Your Turn to Try!
@@ -67,10 +67,58 @@ This approach _assumes_ that the JavaScript is ready and loaded properly. It cau
 // Setup an Event Listener
 document.getElementById("options").addEventListener("click", load_options);
 ```
+### 💻 Your Turn:
+
+On the [index.html](./index.html) file is a button that says "Roll a D6". 
+
+Let's make a function that will pretent to roll a 6-sided die and place the results in the `<span>` called "die_roll".
+```JS
+function rolld6() {
+    document.getElementById("die_roll").textContent = randInt(1, 6);
+}
+```
+
+Now let's add an _event listener_ on line 12 to make the button clickable:
+```JS
+document.getElementById("d6").addEventListener("click", rolld6);
+```
+
+Now go click the button a couple times!
+
+
+> **❓ Can you make the "Roll a D8" button work?**
+
+## Getting Input
+
+Our page also contains an input box:
+```HTML
+ <input id="user_input" type="text" ... >
+```
+
+It is asking for the user's name. Let's say hello to them when they click the "Enter" button.
+
+**Step 1** - Create the function
+```JS
+function say_hello() {
+    // Get what the user entered
+    let name = document.getElementById("user_input").value;
+
+    // Say hello
+    document.getElementById("greeting").textContent = `Hello ${name}!`;
+}
+```
+
+**Step 2** - Create the Event Listener on the Enter button (typically all listeners are placed at the top of your code file)
+```JS
+document.getElementById("enter").addEventListener("click", say_hello);
+```
 
 ---
 
+Congratulations!! You can now make your webpages _interactive_!
+
 **Now go check out [your task](./YOUR_TASK.md).**
+
 
 <br>
 <br>

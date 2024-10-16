@@ -6,9 +6,9 @@
 
 **If you missed the live demonstration in class, read below. Otherwise you can go straight to [your task](./YOUR_TASK.md).**
 
-## 🔍 Getting HTML Elements inside JavaScript
+## 🔍 "Talking to" HTML Elements from JavaScript
 
-**Unique IDs:** All elements that you will be controlling with JavaSscript _must_ have a unique identifier.
+**Unique IDs:** All HTML elements you wish to control with JavaSscript _must_ have a unique identifier.
 
 ```HTML
 index.html
